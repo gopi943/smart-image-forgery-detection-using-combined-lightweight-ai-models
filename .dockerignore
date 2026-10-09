@@ -1,0 +1,57 @@
+# ── Python cache ──
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ── Virtual envs ──
+.venv/
+venv/
+env/
+
+# ── IDE / OS ──
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# ── Node / Frontend source (only dist/ is needed) ──
+frontend-app/node_modules/
+frontend-app/src/
+frontend-app/public/
+frontend-app/.gitignore
+frontend-app/README.md
+frontend-app/eslint.config.js
+frontend-app/index.html
+frontend-app/package.json
+frontend-app/package-lock.json
+frontend-app/tsconfig*.json
+frontend-app/vite.config.ts
+
+# ── Tests (not needed in production image) ──
+tests/
+pytest.ini
+
+# ── Development files ──
+.git/
+.gitignore
+.tmp/
+*.log
+*.zip
+
+# ── Training data (NOT in production image) ──
+datasets/
+dataset_harmonized/
+
+# ── ONNX exports (separate concern) ──
+exports/
+
+# ── Docker files themselves ──
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# ── Misc dev files ──
+*.md
+run.bat

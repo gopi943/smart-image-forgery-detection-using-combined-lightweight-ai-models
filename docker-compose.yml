@@ -1,0 +1,31 @@
+# ====================================================
+# ForensicLens v2.1 — Docker Compose
+# ====================================================
+# Usage: docker compose up --build
+# First build takes ~5-10 minutes (downloads dependencies)
+# Subsequent starts are instant.
+# ====================================================
+
+services:
+  forensiclens:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: forensiclens-server
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TORCH_HOME=/app/.cache/torch
+      - HF_HOME=/app/.cache/huggingface
+    volumes:
+      - forensic_cases:/app/cases
+    restart: unless-stopped
+    # Memory limit — model needs ~2GB, leave headroom
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+
+volumes:
+  forensic_cases:
